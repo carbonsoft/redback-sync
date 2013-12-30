@@ -10,12 +10,27 @@ redback-sync
 - у кого logged 0
 - есть сессия
 
+#### Как тестить
+
+- авторизоваться на redback
+- выполнить sqlexec "UPDATE users SET logged=0 WHERE id=\<test\_user\_id\>
+- Запустить generator
+- Проверить наличие var/send\_disconnect/\<test\_user\_id\>.cmd
+
 ### set_noauth
 
 - у кого radius авторизация
 - tray_agent не запущен
 - не висит noauth полиси
 - есть сессия
+
+#### Как тестить
+
+- Авторизоваться на redback
+- Выключить трэйагент
+- Снять появившуюся noauth policy
+- Запустить generator
+- Проверить наличие var/set\_noauth\_redirect/\<test\_user\_id\>.cmd
 
 ### remove_noauth
 
